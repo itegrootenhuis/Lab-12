@@ -4,11 +4,25 @@ namespace Lab12
 {
     internal class RoshamboApp
     {
-        public static UserPlayer userPlayer = GetUserPlayer();
-        public static ComputerPlayer computerPlayer = GetComputerPlayer();
+        public static UserPlayer userPlayer;
+        public static ComputerPlayer computerPlayer;
 
         public static void InitApp()
         {
+            if (userPlayer == null)
+            {
+                userPlayer = GetUserPlayer();
+            }
+
+            if (computerPlayer == null)
+            {
+                computerPlayer = GetComputerPlayer();
+            }
+            else
+            {
+                computerPlayer = GetComputerPlayer(computerPlayer);
+            }
+
             GetRPS(userPlayer, computerPlayer);
             FigureOutWhoWon(userPlayer, computerPlayer);
         }
@@ -66,12 +80,12 @@ namespace Lab12
                             PrintResults("It is a draw.", userPlayer, computerPlayer);
                             break;
                         case "Paper":
-                            PlayerRecord("npc", userPlayer, computerPlayer);
-                            PrintResults(string.Format("{0} wins.", computerPlayer.Name), userPlayer, computerPlayer);
-                            break;
-                        case "Rock":
                             PlayerRecord("user", userPlayer, computerPlayer);
                             PrintResults(string.Format("{0} wins.", userPlayer.Name), userPlayer, computerPlayer);
+                            break;
+                        case "Rock":
+                            PlayerRecord("npc", userPlayer, computerPlayer);
+                            PrintResults(string.Format("{0} wins.", computerPlayer.Name), userPlayer, computerPlayer);
                             break;
                         default:
                             break;
@@ -96,11 +110,11 @@ namespace Lab12
 
         private static void PrintResults(string response, UserPlayer userPlayer, ComputerPlayer computerPlayer)
         {
-            Console.WriteLine("{0}: {1}", userPlayer.Name, userPlayer.Roshambo);
+            Console.WriteLine("\n{0}: {1}", userPlayer.Name, userPlayer.Roshambo);
             Console.WriteLine("{0}: {1}", computerPlayer.Name, computerPlayer.Roshambo);
             Console.WriteLine(response);
             Console.WriteLine("\n\n{0} win/loss record is {1}/{2}", userPlayer.Name, userPlayer.Wins, userPlayer.Losses);
-            Console.WriteLine("\n\n{0} win/loss record is {1}/{2}", computerPlayer.Name, computerPlayer.Wins, computerPlayer.Losses);
+            Console.WriteLine("{0} win/loss record is {1}/{2}", computerPlayer.Name, computerPlayer.Wins, computerPlayer.Losses);
             QuitConsoleApp();
         }
 
@@ -114,6 +128,23 @@ namespace Lab12
         {
             UserPlayer userPlayer = new UserPlayer(userName);
             return userPlayer;
+        }
+
+        private static ComputerPlayer GetComputerPlayer(ComputerPlayer computerPlayer)
+        {
+            Console.Write("Would you like to continue playing with {0}? Y/N: ", computerPlayer.Name);
+            string userInput = Console.ReadLine();
+            if (userInput.ToLower() == "y")
+            {
+                return computerPlayer;
+            }
+            else
+            {
+                if(computerPlayer.Name == "Dwayne TheRock Johnson")
+                    return SetUpComputerPlayer("t");
+                else
+                    return SetUpComputerPlayer("d");
+            }
         }
 
         private static ComputerPlayer GetComputerPlayer()
@@ -157,10 +188,6 @@ namespace Lab12
             {
                 Console.Clear();
                 InitApp();
-            }
-            else
-            {
-                return;
             }
         }
     }

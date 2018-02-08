@@ -5,3 +5,9 @@ C:\Users\test\Documents\GrandCircus\Lab12\Lab12\obj\Debug\Lab12.csprojResolveAss
 C:\Users\test\Documents\GrandCircus\Lab12\Lab12\obj\Debug\Lab12.csproj.CoreCompileInputs.cache
 C:\Users\test\Documents\GrandCircus\Lab12\Lab12\obj\Debug\Lab12.exe
 C:\Users\test\Documents\GrandCircus\Lab12\Lab12\obj\Debug\Lab12.pdb
+C:\Users\TeGro\Documents\Grand Circus\Lab12\Lab-12\Lab12\bin\Debug\Lab12.exe.config
+C:\Users\TeGro\Documents\Grand Circus\Lab12\Lab-12\Lab12\obj\Debug\Lab12.exe
+C:\Users\TeGro\Documents\Grand Circus\Lab12\Lab-12\Lab12\obj\Debug\Lab12.pdb
+C:\Users\TeGro\Documents\Grand Circus\Lab12\Lab-12\Lab12\bin\Debug\Lab12.exe
+C:\Users\TeGro\Documents\Grand Circus\Lab12\Lab-12\Lab12\bin\Debug\Lab12.pdb
+C:\Users\TeGro\Documents\Grand Circus\Lab12\Lab-12\Lab12\obj\Debug\Lab12.csprojResolveAssemblyReference.cache
